@@ -61,7 +61,7 @@
       (ffmpeg_6-full.override { withUnfree = true; })
       # llvmPackages_latest.clang
       # python3
-      # texlive.combined.scheme-full
+      texlive.combined.scheme-full
       # vim
     ];
   };
@@ -73,7 +73,7 @@
     };
     zsh = {
       enable = true;
-      enableCompletion = true;
+      # enableCompletion = true;
     };
     fish = {
       enable = true;
