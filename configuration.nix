@@ -77,7 +77,6 @@
     };
     fish = {
       enable = true;
-      enableCompletion = true;
     };
     nix-index.enable = true;
     # gnupg
