@@ -14,6 +14,12 @@
       keep-derivations = true;
       keep-outputs = true;
     };
+    # Automatically clean out the Nix store weekly
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-old";
+    };
   };
 
   environment = {
