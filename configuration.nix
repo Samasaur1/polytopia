@@ -22,7 +22,11 @@
     # Automatically clean out the Nix store weekly
     gc = {
       automatic = true;
-      dates = "weekly";
+      interval = {
+        Weekday = 1;
+        Hour =  0;
+        Minute = 0;
+      };
       options = "--delete-old";
     };
   };
