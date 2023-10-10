@@ -4,6 +4,7 @@
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
+# Allow "unfree" packages (unfree as in licensing)
   nixpkgs.config.allowUnfree = true;
 
   nix = {
@@ -31,20 +32,39 @@
       cmake
       coreutils-prefixed
       curl
-      (diffutils.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; doCheck = false; }))
+      (diffutils.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+        doCheck = false;
+      }))
       emacs
       file
-      (findutils.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
+      (findutils.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+      }))
       fzf
       gawk
       git
       # (gnugrep.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
-      (gnumake.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
-      (gnupatch.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
-      (gnused.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
+      (gnumake.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+      }))
+      (gnupatch.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+      }))
+      (gnused.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+      }))
       hyperfine
       imagemagick
-      (inetutils.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
+      (inetutils.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+      }))
       # jdk11 # this provides the command-line tools, but doesn't do enough for macOS to recognize the installation
       jq
       magic-wormhole
@@ -58,7 +78,10 @@
       inputs.nixpkgs-pinned-for-ripgrep-all.legacyPackages.x86_64-darwin.ripgrep-all
       screen
       # shared-mime-info
-      (time.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
+      (time.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or [ ])
+          ++ [ "--program-prefix=g" ];
+      }))
       tmate
       tmux
       tree
