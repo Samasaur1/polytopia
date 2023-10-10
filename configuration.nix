@@ -23,9 +23,8 @@
   };
 
   environment = {
-    variables.EDITOR = "nvim";
     systemPackages = with pkgs; [
-      bash-completion
+      # bash-completion # handled by programs.bash.enableCompletion
       bat
       btop
       cloc
@@ -66,9 +65,9 @@
       wget
       (ffmpeg_6-full.override { withUnfree = true; })
       # llvmPackages_latest.clang
-      # python3
+      python3
       texlive.combined.scheme-full
-      # vim
+      vim
     ];
   };
 
