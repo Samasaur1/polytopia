@@ -75,11 +75,7 @@
       enable = true;
       # enableCompletion = true;
     };
-    fish = {
-      enable = true;
-    };
-    nix-index.enable = true;
-    # gnupg
+    fish = { enable = true; };
     # vim/nvim
   };
 
