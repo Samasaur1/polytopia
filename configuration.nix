@@ -7,7 +7,11 @@
 # Allow "unfree" packages (unfree as in licensing)
   nixpkgs.config.allowUnfree = true;
 
+  system.extraSystemBuilderCmds = "ln -s ${pkgs.path} $out/nixpkgs";
   nix = {
+    # Pin nixpkgs to the rev used when rebuilding the config. This ensures that all usages of `nix profile install nixpkgs#hello` will use the same nixpkgs rev.
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    nixPath = [ "nixpkgs=/run/current-system/nixpkgs" ];
     settings = {
       auto-optimise-store = true;
       experimental-features =
@@ -44,7 +48,7 @@
           ++ [ "--program-prefix=g" ];
       }))
       fzf
-      gawk
+      gawk # note that this provides both gawk and awk, overriding macOS' /usr/bin/awk. there's also gawkInteractive
       git
       # (gnugrep.overrideAttrs (old: { configureFlags = (old.configureFlags or []) ++ [ "--program-prefix=g" ]; }))
       (gnumake.overrideAttrs (old: {
