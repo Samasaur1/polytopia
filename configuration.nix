@@ -7,7 +7,7 @@
 # Allow "unfree" packages (unfree as in licensing)
   nixpkgs.config.allowUnfree = true;
 
-  environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
+  environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
   nix = {
     # Pin nixpkgs to the rev used when rebuilding the config. This ensures that all usages of `nix profile install nixpkgs#hello` will use the same nixpkgs rev.
     registry.nixpkgs.flake = inputs.nixpkgs;
