@@ -8,9 +8,13 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.etc."nix/inputs/nixpkgs".source = "${inputs.nixpkgs}";
+  environment.etc."nix/inputs/polytopia".source = "${inputs.self}";
   nix = {
-    # Pin nixpkgs to the rev used when rebuilding the config. This ensures that all usages of `nix profile install nixpkgs#hello` will use the same nixpkgs rev.
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    registry = {
+      # Pin nixpkgs to the rev used when rebuilding the config. This ensures that all usages of `nix profile install nixpkgs#hello` will use the same nixpkgs rev.
+      nixpkgs.flake = inputs.nixpkgs;
+      polytopia.flake = inputs.self;
+    };
     nixPath = [ "/etc/nix/inputs" ];
     settings = {
       auto-optimise-store = true;
