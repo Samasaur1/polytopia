@@ -16,16 +16,27 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-index-database, nix-darwin, ... }: {
-    darwinConfigurations."imacs" = nix-darwin.lib.darwinSystem {
-      modules =
-        [ ./configuration.nix nix-index-database.nixosModules.nix-index ];
-      specialArgs = { inherit inputs; };
+  outputs = inputs@{ self, nixpkgs, nix-index-database, nix-darwin, ... }:
+    let
+      allSystems = nixpkgs.lib.systems.flakeExposed;
+      forAllSystems = nixpkgs.lib.genAttrs allSystems;
+    in {
+      darwinConfigurations."imacs" = nix-darwin.lib.darwinSystem {
+        modules =
+          [ ./configuration.nix nix-index-database.nixosModules.nix-index ];
+        specialArgs = { inherit inputs; };
+      };
+
+      darwinPackages = self.darwinConfigurations."simple".pkgs;
+
+      devShells = forAllSystems (system:
+        with nixpkgs.lib;
+        mapAttrs' (name: _:
+          nameValuePair (removeSuffix ".nix" name)
+          (nixpkgs.legacyPackages.${system}.callPackage
+            (./devShells + "/${name}") { })) (builtins.readDir ./devShells));
+
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
     };
-
-    darwinPackages = self.darwinConfigurations."simple".pkgs;
-
-    formatter = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed
-      (system: nixpkgs.legacyPackages.${system}.nixfmt);
-  };
 }
