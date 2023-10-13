@@ -24,7 +24,7 @@
       automatic = true;
       interval = {
         Weekday = 1;
-        Hour =  0;
+        Hour = 0;
         Minute = 0;
       };
       options = "--delete-old";
@@ -81,12 +81,6 @@
       neofetch
       neovim
       nmap
-      ocamlPackages.ocaml
-      ocamlPackages.dune_3
-      ocamlPackages.utop
-      ocamlPackages.menhir
-      ocamlPackages.ounit2
-      ocamlPackages.findlib
       pandoc
       ripgrep
       inputs.nixpkgs-pinned-for-ripgrep-all.legacyPackages.x86_64-darwin.ripgrep-all
