@@ -3,7 +3,7 @@
 {
   nix = {
     gc.dates = "weekly";
-    settings.trutsed-users = [ "@wheel" ];
+    settings.trusted-users = [ "@wheel" ];
   };
 
   users.users.sam = {
