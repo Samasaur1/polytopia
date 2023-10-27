@@ -75,7 +75,7 @@
 
   programs = {
     bash = {
-      enable = true;
+      # enable = true; # yes on Darwin; option removed on NixOS
       enableCompletion = true;
     };
     zsh = {
