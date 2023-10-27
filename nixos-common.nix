@@ -26,6 +26,10 @@
     time
   ];
 
+  programs.bash.promptInit = ''
+    source ${./prompt.sh}
+  '';
+
   services.openssh = {
     enable = true;
     settings = {

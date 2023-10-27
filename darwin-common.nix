@@ -49,7 +49,12 @@
     ];
   };
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    interactiveShellInit = ''
+      source ${./prompt.sh}
+    '';
+  };
 
   system.stateVersion = 4;
 
