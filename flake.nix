@@ -1,5 +1,5 @@
 {
-  description = "My NixOS configurations";
+  description = "The Nix config for Polytopia";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -21,13 +21,27 @@
       allSystems = nixpkgs.lib.systems.flakeExposed;
       forAllSystems = nixpkgs.lib.genAttrs allSystems;
     in {
-      darwinConfigurations."imacs" = nix-darwin.lib.darwinSystem {
-        modules =
-          [ ./configuration.nix nix-index-database.nixosModules.nix-index ];
-        specialArgs = { inherit inputs; };
+      nixosConfigurations = {
+        peggy = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./common.nix
+            ./nixos-common.nix
+            ./nixos-graphical-common.nix
+            ./peggy
+          ];
+          specialArgs = { inherit inputs; };
+        };
       };
 
-      darwinPackages = self.darwinConfigurations."simple".pkgs;
+      darwinConfigurations."imacs" = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./common.nix
+          ./darwin-common.nix
+          nix-index-database.nixosModules.nix-index
+        ];
+        specialArgs = { inherit inputs; };
+      };
 
       devShells = forAllSystems (system:
         with nixpkgs.lib;
