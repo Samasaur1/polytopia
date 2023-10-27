@@ -11,6 +11,7 @@
   };
 
   environment = {
+    shells = [ pkgs.bashInteractive ];
     systemPackages = with pkgs; [
       coreutils-prefixed
       (diffutils.overrideAttrs (old: {
