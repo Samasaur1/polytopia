@@ -26,9 +26,13 @@
     time
   ];
 
-  programs.bash.promptInit = ''
-    source ${./prompt.sh}
-  '';
+  programs = {
+    zsh.enable = true;
+    fish.enable = true;
+    bash.promptInit = ''
+      source ${./prompt.sh}
+    '';
+  };
 
   services.openssh = {
     enable = true;
