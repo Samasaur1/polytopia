@@ -32,6 +32,7 @@
     bash.promptInit = ''
       source ${./prompt.sh}
     '';
+    mosh.enable = true;
   };
 
   services.openssh = {
