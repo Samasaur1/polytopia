@@ -19,6 +19,9 @@
         [ "ca-derivations" "flakes" "nix-command" "repl-flake" ];
       keep-derivations = true;
       keep-outputs = true;
+      substituters = [ "https://cache.garnix.io" ];
+      trusted-public-keys =
+        [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
     };
     # Automatically clean out the Nix store weekly
     gc = {
