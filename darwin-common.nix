@@ -41,7 +41,6 @@
         configureFlags = (old.configureFlags or [ ])
           ++ [ "--program-prefix=g" ];
       }))
-      # jdk11 # this provides the command-line tools, but doesn't do enough for macOS to recognize the installation
       # shared-mime-info
       (time.overrideAttrs (old: {
         configureFlags = (old.configureFlags or [ ])
@@ -56,6 +55,13 @@
       source ${./prompt.sh}
     '';
   };
+
+  system.activationScripts.extraActivation.text = ''
+    ln -sf "${pkgs.jdk11}/zulu-11.jdk" "/Library/Java/JavaVirtualMachines/"
+  '';
+  # Could also include these lines for more JDKs, but I'm choosing to only install 11
+    # ln -sf "${pkgs.jdk8}/zulu-8.jdk" "/Library/Java/JavaVirtualMachines/"
+    # ln -sf "${pkgs.jdk17}/zulu-17.jdk" "/Library/Java/JavaVirtualMachines/"
 
   system.stateVersion = 4;
 
