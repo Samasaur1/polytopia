@@ -12,5 +12,6 @@
     vzaayer = bash;
     tuckerrtwomey = zsh;
     pnorton = bash;
+    gabeh = bash;
   };
 }
