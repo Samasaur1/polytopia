@@ -4,7 +4,7 @@
   # services.xserver.enable #? idk. grab from peggy during install
   networking.networkmanager.enable = true;
 
-  time.timeZone = "American/Lost_Angeles";
+  time.timeZone = "American/Los_Angeles";
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
