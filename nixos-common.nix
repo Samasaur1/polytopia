@@ -43,6 +43,7 @@
     };
     extraConfig = ''
       AcceptEnv DARKMODE
+      AcceptEnv COLORTERM
     '';
   };
 
