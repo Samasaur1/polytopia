@@ -62,7 +62,7 @@
     nmap
     pandoc
     ripgrep
-    inputs.nixpkgs-pinned-for-ripgrep-all.legacyPackages.${system}.ripgrep-all
+    ripgrep-all
     screen
     # time # prefixed on darwin, not on nixos
     tmate
