@@ -11,5 +11,20 @@
     };
   };
 
+  networking.firewall = {
+    allowedTCPPortRanges = [
+      {
+        from = 10000;
+        to = 11000;
+      }
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 10000;
+        to = 11000;
+      }
+    ];
+  };
+
   networking.hostName = "peggy";
 }
