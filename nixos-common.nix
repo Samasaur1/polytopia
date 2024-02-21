@@ -61,7 +61,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = "github:Samasaur1/nixos";
+    flake = "github:Samasaur1/polytopia";
     dates = "04:15";
     allowReboot = true;
     rebootWindow = {
