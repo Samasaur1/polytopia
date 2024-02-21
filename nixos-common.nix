@@ -59,6 +59,19 @@
     Defaults pwfeedback
   '';
 
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:Samasaur1/nixos";
+    dates = "04:15";
+    allowReboot = true;
+    rebootWindow = {
+      lower = "04:30";
+      upper = "05:00";
+    };
+    persistent = true; # default
+    operation = "switch"; # default
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
