@@ -5,11 +5,15 @@ pkgs.mkShell {
     (pkgs.python3.withPackages (ps: with ps; [
       jupyter
       numpy
-      torch
       matplotlib
       tensorboard
       scikit-learn
+    ] ++ (if (pkgs.stdenv.isDarwin && pkgs.stdenv.isAarch64) then with ps; [
+      torch-bin
+      torchvision-bin
+    ] else with ps; [
+      torch
       torchvision
-    ]))
+    ])))
   ];
 }

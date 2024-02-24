@@ -44,8 +44,11 @@
         with nixpkgs.lib;
         mapAttrs' (name: _:
           nameValuePair (removeSuffix ".nix" name)
-          (nixpkgs.legacyPackages.${system}.callPackage
-            (./devShells + "/${name}") { })) (builtins.readDir ./devShells));
+          (let pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
+            in pkgs.callPackage (./devShells + "/${name}") {}))
+          # (nixpkgs.legacyPackages.${system}.callPackage
+          #   (./devShells + "/${name}") { }))
+            (builtins.readDir ./devShells));
 
       formatter =
         forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
