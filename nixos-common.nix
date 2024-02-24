@@ -62,7 +62,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:Samasaur1/polytopia";
-    dates = "04:15";
+    dates = "04:35";
     allowReboot = true;
     rebootWindow = {
       lower = "04:30";
