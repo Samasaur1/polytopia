@@ -8,6 +8,7 @@ pkgs.mkShell {
       matplotlib
       tensorboard
       scikit-learn
+      tqdm
     ] ++ (if (pkgs.stdenv.isDarwin && pkgs.stdenv.isAarch64) then with ps; [
       torch-bin
       torchvision-bin
