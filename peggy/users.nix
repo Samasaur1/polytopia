@@ -13,5 +13,6 @@
     tuckerrtwomey = zsh;
     pnorton = bash;
     gabeh = bash;
+    rileyshahar = fish;
   };
 }
