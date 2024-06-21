@@ -14,5 +14,6 @@
     pnorton = bash;
     gabeh = bash;
     rileyshahar = fish;
+    doranp = bash;
   };
 }
