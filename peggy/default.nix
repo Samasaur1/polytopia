@@ -27,4 +27,10 @@
   };
 
   networking.hostName = "peggy";
+
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  users.users.sam.extraGroups = [ "docker" ];
 }
