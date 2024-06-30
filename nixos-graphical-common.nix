@@ -34,6 +34,10 @@
     variant = "";
   };
 
+  # Enable RDP
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

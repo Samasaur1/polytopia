@@ -33,4 +33,7 @@
   };
 
   users.users.sam.extraGroups = [ "docker" ];
+
+  programs.steam.enable = true;
+  hardware.graphics.enable32Bit = true; # has no effect unless hardware.graphics.enable is set by something
 }
