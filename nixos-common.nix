@@ -29,9 +29,12 @@
   programs = {
     zsh.enable = true;
     fish.enable = true;
-    bash.promptInit = ''
-      source ${./prompt.sh}
-    '';
+    bash = {
+      completion.enable = true;
+      promptInit = ''
+        source ${./prompt.sh}
+      '';
+    };
     mosh.enable = true;
   };
 

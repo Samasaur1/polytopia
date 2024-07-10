@@ -79,10 +79,10 @@
   programs = {
     bash = {
       # enable = true; # yes on Darwin; option removed on NixOS
-      enableCompletion = true;
+      # completion.enable = true; # nixos option
+      # enableCompletion = true; # darwin option
     };
     zsh = {
-      # does anyone use fucking zsh anyway?
       enable = true;
       # enableCompletion = true; # commented out on Darwin, enable on NixOS?
     };
