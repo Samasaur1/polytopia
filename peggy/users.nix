@@ -15,5 +15,6 @@
     gabeh = bash;
     rileyshahar = fish;
     doranp = bash;
+    kwilson = bash;
   };
 }
