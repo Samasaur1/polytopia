@@ -6,6 +6,7 @@
     ```bash
     sudo -i
     su ${NEW_USERNAME}
+    cd
     mkdir .ssh
     curl -fsSL https://github.com/${GH_USERNAME}.keys > .ssh/authorized_keys
     exit
