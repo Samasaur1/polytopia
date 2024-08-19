@@ -41,6 +41,7 @@
     curl
     # diffutils # prefixed on darwin, not on nixos
     emacs
+    fastfetch
     file
     # findutils # prefixed on darwin, not on nixos
     fzf
