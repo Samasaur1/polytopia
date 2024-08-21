@@ -26,6 +26,7 @@
             ./nixos-common.nix
             ./nixos-graphical-common.nix
             ./peggy
+          nix-index-database.nixosModules.nix-index
           ];
           specialArgs = { inherit inputs; };
         };
@@ -35,7 +36,7 @@
         modules = [
           ./common.nix
           ./darwin-common.nix
-          nix-index-database.nixosModules.nix-index
+          nix-index-database.darwinModules.nix-index
         ];
         specialArgs = { inherit inputs; };
       };
