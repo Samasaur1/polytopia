@@ -34,6 +34,13 @@
 
   users.users.sam.extraGroups = [ "docker" ];
 
+  users.users.jimfix.packages = [
+    (lib.hiPrio pkgs.python3)
+    pkgs.python311
+    pkgs.python310
+    pkgs.python39
+  ];
+
   programs.steam.enable = true;
   hardware.graphics.enable32Bit = true; # has no effect unless hardware.graphics.enable is set by something
 }
