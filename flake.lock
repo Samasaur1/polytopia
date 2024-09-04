@@ -57,11 +57,32 @@
         "type": "github"
       }
     },
+    "reed-thesis-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1725559333,
+        "narHash": "sha256-NjlwoN1d2BqQaq5DwvlHgy6Jy1L2NxCkRLvO319qn9w=",
+        "owner": "Samasaur1",
+        "repo": "reed-thesis-nix",
+        "rev": "c061bd37830e60378a79d16b2b9643f157cc6937",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Samasaur1",
+        "repo": "reed-thesis-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nix-darwin": "nix-darwin",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "reed-thesis-nix": "reed-thesis-nix"
       }
     }
   },

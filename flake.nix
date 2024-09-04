@@ -11,6 +11,11 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    reed-thesis-nix = {
+      url = "github:Samasaur1/reed-thesis-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nix-index-database, nix-darwin, ... }:

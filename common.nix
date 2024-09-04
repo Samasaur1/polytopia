@@ -73,7 +73,7 @@
     (ffmpeg_6-full.override { withUnfree = true; })
     # clang
     python3
-    texlive.combined.scheme-full
+    (texliveFull.withPackages (_: [ inputs.reed-thesis-nix.packages.${pkgs.system}.default.tex ]))
     vim
   ];
 
