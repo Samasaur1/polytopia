@@ -17,5 +17,6 @@
     doranp = bash;
     kwilson = bash;
     tristanf = bash;
+    jimfix = bash;
   };
 }

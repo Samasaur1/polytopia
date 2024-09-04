@@ -9,6 +9,7 @@
     cd
     mkdir .ssh
     curl -fsSL https://github.com/${GH_USERNAME}.keys > .ssh/authorized_keys
+    chmod 600 .ssh/authorized_keys
     exit
     passwd ${NEW_USERNAME}
     ```
