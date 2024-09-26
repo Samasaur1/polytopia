@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 pkgs.mkShell {
-  buildInputs = [
+  packages = [
     pkgs.gnumake
     pkgs.clang
     pkgs.lldb
@@ -10,4 +10,6 @@ pkgs.mkShell {
     pkgs.cmake
     pkgs.git
   ];
+
+  name = "CS221";
 }

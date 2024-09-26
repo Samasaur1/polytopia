@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 pkgs.mkShell {
-  buildInputs = [
+  packages = [
     (pkgs.python3.withPackages (ps: with ps; [
       jupyter
       numpy
@@ -17,4 +17,6 @@ pkgs.mkShell {
       torchvision
     ])))
   ];
+
+  name = "CS378";
 }
