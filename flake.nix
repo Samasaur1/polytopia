@@ -22,6 +22,16 @@
     let
       allSystems = nixpkgs.lib.systems.flakeExposed;
       forAllSystems = nixpkgs.lib.genAttrs allSystems;
+      define = f: forAllSystems (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+            };
+          };
+        in
+          f pkgs);
     in {
       nixosConfigurations = {
         peggy = nixpkgs.lib.nixosSystem {
@@ -46,17 +56,44 @@
         specialArgs = { inherit inputs; };
       };
 
-      devShells = forAllSystems (system:
-        with nixpkgs.lib;
-        mapAttrs' (name: _:
-          nameValuePair (removeSuffix ".nix" name)
-          (let pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
-            in pkgs.callPackage (./devShells + "/${name}") {}))
-          # (nixpkgs.legacyPackages.${system}.callPackage
-          #   (./devShells + "/${name}") { }))
-            (builtins.readDir ./devShells));
+      devShells = define (pkgs:
+        let
+          inherit (pkgs.lib)
+            mapAttrs'
+            nameValuePair
+            removeSuffix
+          ;
+        in
+          {
+            default = pkgs.mkShell {
+              buildInputs = [ pkgs.ansible ];
+              shellHook = ''
+                if ! [ $(id -u -n) == sam ]; then
+                  cat <<< "This dev shell is meant for administration of CS department computers.
+                You likely ran something along the lines of
 
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+                    nix develop polytopia
+
+                This is probably not what you meant to run.
+                Did you mean something like the following?
+
+                    nix develop polytopia#cs221
+
+                If you know what you're doing, feel free to ignore this message."
+                fi
+              '';
+            };
+          }
+          //
+          mapAttrs'
+            (name: _:
+              nameValuePair
+                (removeSuffix ".nix" name)
+                (pkgs.callPackage (./devShells + "/${name}") {})
+            )
+            (builtins.readDir ./devShells)
+      );
+
+      formatter = define (pkgs: pkgs.nixfmt);
     };
 }
