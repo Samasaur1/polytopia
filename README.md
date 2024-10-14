@@ -1,3 +1,13 @@
+# Ansible (WIP)
+
+`ansible-playbook -i inventory.ini playbook.yaml`
+
+---
+
+## Old info
+
+The following information is now deprecated:
+
 ### Adding users:
 
 1. Add entry to `peggy/users.nix`
