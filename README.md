@@ -1,6 +1,9 @@
 # Ansible (WIP)
 
-`ansible-playbook -i inventory.ini playbook.yaml`
+```bash
+nix develop
+ansible-playbook -i inventory.ini playbook.yaml
+```
 
 ---
 
