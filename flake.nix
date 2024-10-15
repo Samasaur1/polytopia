@@ -2,23 +2,10 @@
   description = "The Nix config for Polytopia";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nix-index-database.url = "github:Mic92/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    reed-thesis-nix = {
-      url = "github:Samasaur1/reed-thesis-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-index-database, nix-darwin, ... }:
+  outputs = inputs@{ self, nixpkgs, ... }:
     let
       allSystems = nixpkgs.lib.systems.flakeExposed;
       forAllSystems = nixpkgs.lib.genAttrs allSystems;
@@ -33,29 +20,6 @@
         in
           f pkgs);
     in {
-      nixosConfigurations = {
-        peggy = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./common.nix
-            ./nixos-common.nix
-            ./nixos-graphical-common.nix
-            ./peggy
-          nix-index-database.nixosModules.nix-index
-          ];
-          specialArgs = { inherit inputs; };
-        };
-      };
-
-      darwinConfigurations."imacs" = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./common.nix
-          ./darwin-common.nix
-          nix-index-database.darwinModules.nix-index
-        ];
-        specialArgs = { inherit inputs; };
-      };
-
       devShells = define (pkgs:
         let
           inherit (pkgs.lib)
