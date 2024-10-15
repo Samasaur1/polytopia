@@ -2,7 +2,7 @@
 
 ```bash
 nix develop
-ansible-playbook -i inventory.ini playbook.yaml
+ansible-playbook -i inventory.ini playbook.yaml -K
 ```
 
 ---

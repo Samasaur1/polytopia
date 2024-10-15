@@ -1,5 +1,42 @@
 - name: Test connectivity
   hosts: reednet
   tasks:
-   - name: Ping all machines
-     ansible.builtin.ping:
+    - name: Ensure SSH accepts env vars
+      become: true
+      ansible.builtin.copy:
+        content: |
+          AcceptEnv COLORTERM
+          AcceptEnv DARKMODE
+        dest: '/etc/ssh/sshd_config.d/10-sam-accept-env.conf'
+        group: 'root'
+        mode: '644'
+        owner: 'root'
+
+    - name: Globally install some packages
+      become: true
+      ansible.builtin.apt:
+        pkg:
+          - curl
+          - micro
+          - git
+          - openssh-server
+          - openssh-client
+          - kitty-terminfo
+          - ripgrep
+          - mosh
+          - eza
+          - bat
+          - python3
+          - fish
+          - zsh
+          - bash
+        state: latest
+        update_cache: yes
+        cache_valid_time: 3600
+        
+
+    # falcon
+    # nix
+    # tailscale
+    # motd
+    # /etc/hosts
