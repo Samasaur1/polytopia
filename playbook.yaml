@@ -12,6 +12,15 @@
         mode: '644'
         owner: 'root'
 
+    - name: Set system flake registry
+      become: true
+      ansible.builtin.copy:
+        src: './registry.json'
+        dest: '/etc/nix/registry.json'
+        owner: 'root'
+        group: 'root'
+        mode: '644'
+
     - name: Globally install some packages
       become: true
       ansible.builtin.apt:

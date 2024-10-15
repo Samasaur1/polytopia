@@ -1,0 +1,17 @@
+{
+  "flakes": [
+    {
+      "exact": true,
+      "from": {
+        "id": "polytopia",
+        "type": "indirect"
+      },
+      "to": {
+        "owner": "Samasaur1",
+        "repo": "polytopia",
+        "type": "github"
+      }
+    }
+  ],
+  "version": 2
+}
