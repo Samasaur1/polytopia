@@ -1,0 +1,21 @@
+- name: Synchronize group 'cgilligan'
+  become: true
+  ansible.builtin.group:
+    name: cgilligan
+    state: present
+    system: false
+- name: Synchronize user 'cgilligan'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Connor Gilligan,,,
+    create_home: true
+    generate_ssh_key: false
+    group: cgilligan
+    groups: users
+    name: cgilligan
+    password: '$6$gRtgcuWcABqI42ce$qQfgk1tf.Ui6X3VvH9OTVclaVHr6PMQX.oNvj2mWbTw.VTsnPvMbmC5bKlzGms1Ns/FUWRRXA/dDHpz..NAEQ/'
+    shell: '/usr/bin/fish'
+    state: present
+    system: false
+    update_password: on_create

@@ -1,0 +1,21 @@
+- name: Synchronize globally installed packages
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - curl
+      - micro
+      - git
+      - openssh-server
+      - openssh-client
+      - kitty-terminfo
+      - ripgrep
+      - mosh
+      - eza
+      - bat
+      - python3
+      - fish
+      - zsh
+      - bash
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
