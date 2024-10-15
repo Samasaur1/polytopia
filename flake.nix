@@ -66,7 +66,7 @@
         in
           {
             default = pkgs.mkShell {
-              buildInputs = [ pkgs.ansible ];
+              buildInputs = [ pkgs.ansible pkgs.mkpasswd ];
               shellHook = ''
                 if ! [ $(id -u -n) == sam ]; then
                   cat <<< "This dev shell is meant for administration of CS department computers.
