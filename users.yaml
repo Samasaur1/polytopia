@@ -19,3 +19,24 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'pnorton'
+  become: true
+  ansible.builtin.group:
+    name: pnorton
+    state: present
+    system: false
+- name: Synchronize user 'pnorton'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Patrick Norton,,,
+    create_home: true
+    generate_ssh_key: false
+    group: pnorton
+    groups: users
+    name: pnorton
+    password: '$6$tmYYapuWYC7dqcYI$kh5/cpCmxVhOqmlMeB9okizLcyv1QAC0ar8vuWfPg2YnvwhUVMinjWjHWqHnIDOwF4GJmjHQImfz.Vg8lp0M21'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
