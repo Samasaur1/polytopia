@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 pkgs.mkShell {
   packages = [
@@ -6,10 +6,11 @@ pkgs.mkShell {
     pkgs.clang
     pkgs.lldb
     pkgs.gcc
-    pkgs.gdb
     pkgs.cmake
     pkgs.git
-  ];
+  ] ++ (lib.optionals (!pkgs.stdenv.isDarwin) [
+      pkgs.gdb
+  ]);
 
   name = "CS221";
 }
