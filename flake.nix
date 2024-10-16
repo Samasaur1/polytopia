@@ -30,7 +30,16 @@
         in
           {
             default = pkgs.mkShell {
-              buildInputs = [ pkgs.ansible pkgs.mkpasswd ];
+              buildInputs = [
+                pkgs.ansible
+                pkgs.mkpasswd
+                (pkgs.writeShellScriptBin "poly-run-ansible" ''
+                  exec ansible-playbook -i inventory.ini playbook.yaml -K "$@"
+                '')
+                (pkgs.writeShellScriptBin "poly-hash-password" ''
+                  exec mkpasswd --method=sha-512 "$@"
+                '')
+              ];
               shellHook = ''
                 if ! [ $(id -u -n) == sam ]; then
                   cat <<< "This dev shell is meant for administration of CS department computers.
