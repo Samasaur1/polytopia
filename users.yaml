@@ -56,7 +56,7 @@
     group: doranp
     groups: users
     name: doranp
-    password: ''
+    password: '$6$am88QaRysD4qMGpU$OQd/DnqyqdqepzZh/hGUc4OH2L/XzJ.qgVpj0oAK8gO17I0jAoTmiMvtwJar9U0SNm2UIhAR5t8DKrRt/Tt.a/'
     shell: '/usr/bin/bash'
     state: present
     system: false
@@ -77,7 +77,7 @@
     group: milesc
     groups: users
     name: milesc
-    password: ''
+    password: '$6$d12j/M9OSkHt.pEB$0d5cY/CbP/b98Xpi58qpofOtdy3vm5avUBiVBYlkWCrH4HS/YGZzW.ZTbiW3OVToge63W0IbSHlzAvOPytRB6/'
     shell: '/usr/bin/bash'
     state: present
     system: false
@@ -98,7 +98,7 @@
     group: mniederman
     groups: users
     name: mniederman
-    password: ''
+    password: '$6$YURLZMDLoc8fMaJZ$rCVagSrg.1HL6hibwMxxUQAc5FJf8/1nDj93HGu2nFbXI1f6r1z2OVumYFAAs6hLNTlCuvc6wcx6eTqjMvqBb.'
     shell: '/usr/bin/bash'
     state: present
     system: false
@@ -119,7 +119,7 @@
     group: kwilson
     groups: users
     name: kwilson
-    password: ''
+    password: '$6$g3jZrLHt3BI61F5D$nSbRF3MU2u.IRiYq3pLxrE02fgIwxVO1r0nxh91be2rBlOxe9vQX3rBvuV3uAYqj5MaBtUFgrCPWARuLcAGrL0'
     shell: '/usr/bin/bash'
     state: present
     system: false
@@ -140,7 +140,7 @@
     group: tristanf
     groups: users
     name: tristanf
-    password: ''
+    password: '$6$5ZETrZ8YpL7eXJZq$nlUUKuc.20TU/hwfuNf9lm2CHH9RZJnVolCDQEUpao7ta3Gi2Mk6T3fV9M2W1hMpK9FGNY6gmdgSw8N0ERT8J0'
     shell: '/usr/bin/bash'
     state: present
     system: false
