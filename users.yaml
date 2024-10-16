@@ -40,3 +40,108 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'doranp'
+  become: true
+  ansible.builtin.group:
+    name: doranp
+    state: present
+    system: false
+- name: Synchronize user 'doranp'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Doran Penner,,,
+    create_home: true
+    generate_ssh_key: false
+    group: doranp
+    groups: users
+    name: doranp
+    password: ''
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'milesc'
+  become: true
+  ansible.builtin.group:
+    name: milesc
+    state: present
+    system: false
+- name: Synchronize user 'milesc'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Miles Churchland,,,
+    create_home: true
+    generate_ssh_key: false
+    group: milesc
+    groups: users
+    name: milesc
+    password: ''
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'mniederman'
+  become: true
+  ansible.builtin.group:
+    name: mniederman
+    state: present
+    system: false
+- name: Synchronize user 'mniederman'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Max Niederman,,,
+    create_home: true
+    generate_ssh_key: false
+    group: mniederman
+    groups: users
+    name: mniederman
+    password: ''
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'kwilson'
+  become: true
+  ansible.builtin.group:
+    name: kwilson
+    state: present
+    system: false
+- name: Synchronize user 'kwilson'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Kavi Wilson,,,
+    create_home: true
+    generate_ssh_key: false
+    group: kwilson
+    groups: users
+    name: kwilson
+    password: ''
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'tristanf'
+  become: true
+  ansible.builtin.group:
+    name: tristanf
+    state: present
+    system: false
+- name: Synchronize user 'tristanf'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Tristan Figueroa-Reid,,,
+    create_home: true
+    generate_ssh_key: false
+    group: tristanf
+    groups: users
+    name: tristanf
+    password: ''
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
