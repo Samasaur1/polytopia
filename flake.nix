@@ -26,6 +26,9 @@
             mapAttrs'
             nameValuePair
             removeSuffix
+
+            getExe
+            getExe'
           ;
         in
           {
@@ -34,10 +37,10 @@
                 pkgs.ansible
                 pkgs.mkpasswd
                 (pkgs.writeShellScriptBin "poly-run-ansible" ''
-                  exec ansible-playbook -i inventory.ini playbook.yaml -K "$@"
+                  exec ${getExe' pkgs.ansible "ansible-playbook"} -i inventory.ini playbook.yaml -K "$@"
                 '')
                 (pkgs.writeShellScriptBin "poly-hash-password" ''
-                  exec mkpasswd --method=sha-512 "$@"
+                  exec ${getExe pkgs.mkpasswd} --method=sha-512 "$@"
                 '')
               ];
               shellHook = ''

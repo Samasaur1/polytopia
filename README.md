@@ -41,6 +41,11 @@ Perhaps we only want to update dev shells in between semesters, so that they are
     ansible-playbook -i inventory.ini playbook.yaml -K
     ```
 
+    If you're using the dev shell:
+    ```bash
+    poly-run-ansible
+    ```
+
     Note that you need SSH host configurations for all machines, since they are defined in the inventory without their FQDNs
 
 ##### Adding users
@@ -51,6 +56,11 @@ Perhaps we only want to update dev shells in between semesters, so that they are
 
     ```bash
     mkpasswd --method=sha-512
+    ```
+
+    If you're using the dev shell:
+    ```bash
+    poly-hash-password
     ```
 
     Using our example, this gives `$6$e0A7MR6aAnL3r9Y5$WevmaiUlUo6p67OErBd8.krTCTg/36EnNrpj8zUJKNWwIn3L7MqSmc3rOPupmajxJQ9z3N9Hsg7x9GaZfeVZr.`
