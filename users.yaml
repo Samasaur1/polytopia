@@ -145,3 +145,24 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'vzaayer'
+  become: true
+  ansible.builtin.group:
+    name: vzaayer
+    state: present
+    system: false
+- name: Synchronize user 'vzaayer'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Vaughn Zaayer,,,
+    create_home: true
+    generate_ssh_key: false
+    group: vzaayer
+    groups: users
+    name: vzaayer
+    password: '$6$Q/3OT5RFLrSVluIh$X.bnt2Ep72B7V40RafSFevMUieP8nuEhRLMdjNzOPvbGDMaDX0EzYRssJpAXBLMRPuaQ21cmU5BB7ytBwsO910'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
