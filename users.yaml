@@ -166,3 +166,66 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'araney'
+  become: true
+  ansible.builtin.group:
+    name: araney
+    state: present
+    system: false
+- name: Synchronize user 'araney'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Aoife Raney,,,
+    create_home: true
+    generate_ssh_key: false
+    group: araney
+    groups: users
+    name: araney
+    password: '$6$J.RhfjcRPod4bxGa$hTbEVDzqrdL3ntEcFrMHrcGXpHxxRjE.hr6rR1ylmnNXhGfGUrqOSy3T4YvJtJBM0t2gYZIzxFZ8VULBBWzah/'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'yiyuanli'
+  become: true
+  ansible.builtin.group:
+    name: yiyuanli
+    state: present
+    system: false
+- name: Synchronize user 'yiyuanli'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Yi Yuanli,,,
+    create_home: true
+    generate_ssh_key: false
+    group: yiyuanli
+    groups: users
+    name: yiyuanli
+    password: '$6$yihWRkzhnthb4LiZ$nFS.c5uGj7SmDDMSQ0cG6asxwfvrTbQ2TvVtjeynYqCa/gEHULIJywMOx61LHI93ac3wj6QneazYuNgjmxmBn.'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'aidanm'
+  become: true
+  ansible.builtin.group:
+    name: aidanm
+    state: present
+    system: false
+- name: Synchronize user 'aidanm'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Aidan Mokalla,,,
+    create_home: true
+    generate_ssh_key: false
+    group: aidanm
+    groups: users
+    name: aidanm
+    password: '$6$HepMbNitLSxxH9kS$o59Y5ex.fBU1zafx0nXVPgD/rtT5eT7KzGZ36VcVm49CYQ4dFDXDDcWnTJVocUJTmxUa3iDgnZhXqnXceE6150'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
