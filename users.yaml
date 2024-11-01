@@ -229,3 +229,24 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'atali'
+  become: true
+  ansible.builtin.group:
+    name: atali
+    state: present
+    system: false
+- name: Synchronize user 'atali'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Tali Auster,,,
+    create_home: true
+    generate_ssh_key: false
+    group: atali
+    groups: users
+    name: atali
+    password: '$6$dhsmCbDovRsHoxk5$mvIfD/aq.bFy2e.OGTfyjyDeuNm8OZ4WmTja2ma7VWeoiLnZZaoZ1PeIspi9VojMGJ8guSytcnYRYRC0xX0z2/'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
