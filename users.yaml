@@ -250,3 +250,24 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'dstewardson'
+  become: true
+  ansible.builtin.group:
+    name: dstewardson
+    state: present
+    system: false
+- name: Synchronize user 'dstewardson'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Duncan Stewardson,,,
+    create_home: true
+    generate_ssh_key: false
+    group: dstewardson
+    groups: users
+    name: dstewardson
+    password: '$6$mJrOZv3CIcA7j0Q5$50i6HXAnmfbf/fbPKBJaInBfnxMXe7kuccHxFIxZd0DqpoTx75PXdkg8NKqI3vsXAzqCUoGSR2WE9J/8vPqrA1'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
