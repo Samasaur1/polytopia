@@ -12,7 +12,7 @@
       - eza
       - bat
       - btop
-      - fastfetch
+      - hyfetch
       - python3
       - python3.12-venv
       - fish
