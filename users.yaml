@@ -271,3 +271,45 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'sam'
+  become: true
+  ansible.builtin.group:
+    name: sam
+    state: present
+    system: false
+- name: Synchronize user 'sam'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Sam Gauck,,,
+    create_home: true
+    generate_ssh_key: false
+    group: sam
+    groups: users
+    name: sam
+    password: '$6$jsqs916d6XuFctty$RBWOTt1yGXpyduqXQ0aF3ZXu2z6EFQ9iKeM7Ij3QhkPYzBEd9FSt.aymgU.UwGflyVYy3G0UeWy9wBXkZdMD11'
+    shell: '/usr/bin/fish'
+    state: present
+    system: false
+    update_password: on_create
+- name: Synchronize group 'gabeh'
+  become: true
+  ansible.builtin.group:
+    name: gabeh
+    state: present
+    system: false
+- name: Synchronize user 'gabeh'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Gabe Howland,,,
+    create_home: true
+    generate_ssh_key: false
+    group: gabeh
+    groups: users
+    name: gabeh
+    password: '$6$9h3xGhV1t/fIR9/G$6k5u6V4l/UryNcbL8zxDdHvrZhHTnOXHmDCxtk9j0Kq1X.gwUlNkFpet7ob3NjUNHV7utjn2b19BGQugzHLFy/'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
