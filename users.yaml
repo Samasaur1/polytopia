@@ -285,7 +285,14 @@
     create_home: true
     generate_ssh_key: false
     group: sam
-    groups: users
+    groups:
+      - adm
+      - cdrom
+      - sudo
+      - dip
+      - plugdev
+      - users
+      - lpadmin
     name: sam
     password: '$6$jsqs916d6XuFctty$RBWOTt1yGXpyduqXQ0aF3ZXu2z6EFQ9iKeM7Ij3QhkPYzBEd9FSt.aymgU.UwGflyVYy3G0UeWy9wBXkZdMD11'
     shell: '/usr/bin/fish'
