@@ -341,3 +341,24 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'mbear'
+  become: true
+  ansible.builtin.group:
+    name: mbear
+    state: present
+    system: false
+- name: Synchronize user 'mbear'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Micheal Bear,,,
+    create_home: true
+    generate_ssh_key: false
+    group: elenag
+    groups: users
+    name: mbear
+    password: '$6$pwbXkyZZBszZPyyl$LxrsDXVwG3k.OMTmum.I0qlahR7R2yiCrvLk2GUX1M28oK/2Eqj9BhGBpDXBjBubzZkMdCaJ15mWcXk99GayA/'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
