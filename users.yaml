@@ -320,3 +320,24 @@
     state: present
     system: false
     update_password: on_create
+- name: Synchronize group 'elenag'
+  become: true
+  ansible.builtin.group:
+    name: elenag
+    state: present
+    system: false
+- name: Synchronize user 'elenag'
+  become: true
+  ansible.builtin.user:
+    append: false
+    comment: Elena Geffen,,,
+    create_home: true
+    generate_ssh_key: false
+    group: elenag
+    groups: users
+    name: elenag
+    password: '$6$pwbXkyZZBszZPyyl$LxrsDXVwG3k.OMTmum.I0qlahR7R2yiCrvLk2GUX1M28oK/2Eqj9BhGBpDXBjBubzZkMdCaJ15mWcXk99GayA/'
+    shell: '/usr/bin/bash'
+    state: present
+    system: false
+    update_password: on_create
