@@ -336,7 +336,7 @@
     group: elenag
     groups: users
     name: elenag
-    password: '$6$pwbXkyZZBszZPyyl$LxrsDXVwG3k.OMTmum.I0qlahR7R2yiCrvLk2GUX1M28oK/2Eqj9BhGBpDXBjBubzZkMdCaJ15mWcXk99GayA/'
+    password: '$6$X7gd0BTLNe5eyw8R$6HtgDI6b66dfJDT34XQoJcF2bxaXfq2rg9R3ztVuhUH0ZLBoLSHtqueqtCdvOOqKjb42F1UpsRQV3YgxBtCQm1'
     shell: '/usr/bin/bash'
     state: present
     system: false
@@ -357,7 +357,7 @@
     group: mbear
     groups: users
     name: mbear
-    password: '$6$pwbXkyZZBszZPyyl$LxrsDXVwG3k.OMTmum.I0qlahR7R2yiCrvLk2GUX1M28oK/2Eqj9BhGBpDXBjBubzZkMdCaJ15mWcXk99GayA/'
+    password: '$6$gdvpDeTr9OMvfuk6$684boeZbYQ5NKcaM/IzSq5mJa1ft7Pu1M7zsW8OHiuOtFC3bDGwnVxUBEBNtw8mybDvPgf.vWCYWBIc1GzJ7B0'
     shell: '/usr/bin/bash'
     state: present
     system: false
