@@ -354,7 +354,7 @@
     comment: Micheal Bear,,,
     create_home: true
     generate_ssh_key: false
-    group: elenag
+    group: mbear
     groups: users
     name: mbear
     password: '$6$pwbXkyZZBszZPyyl$LxrsDXVwG3k.OMTmum.I0qlahR7R2yiCrvLk2GUX1M28oK/2Eqj9BhGBpDXBjBubzZkMdCaJ15mWcXk99GayA/'
