@@ -1,5 +1,10 @@
 # Polytopia
 
+> [!WARNING]  
+> This repository has been archived in favor of <https://github.com/Reed-CSTAR/reednet>
+
+***
+
 This repository provides a couple things:
 
 ### Nix dev shells
